@@ -1,8 +1,8 @@
 <template>
   <q-page class="flex flex-center">
     <div>
-          <InputPage />
-        </div>
+      <InputPage />
+    </div>
   </q-page>
 </template>
 
@@ -15,8 +15,8 @@
 
 import InputPage from "../components/InputPage";
 export default {
-  name: 'IndexPage',
-  components: {InputPage}
-}
+  name: "IndexPage",
+  components: { InputPage },
+};
+console.log(InputPage);
 </script>
-
