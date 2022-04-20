@@ -9,7 +9,7 @@
     />
   </div>
   <div>
-    <q-field style="q-mt-xl" borderless label="Decoded:" stack-label>
+    <q-field class="q-mt-lg" borderless label="Decoded:" stack-label>
       <template v-slot:control>
         <div class="self-center full-width no-outline" tabindex="10">
           {{ decodeBase64() }}
