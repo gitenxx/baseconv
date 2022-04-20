@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md" style="max-width: 300px">
+  <div style="max-width: 300px">
     <h3>Input base64 string here</h3>
     <q-input
       v-model="text"
@@ -7,6 +7,15 @@
       type="textarea"
       v-on:change="(event) => decodeBase64(event)"
     />
+  </div>
+  <div>
+    <q-field style="q-mt-xl" borderless label="Decoded:" stack-label>
+      <template v-slot:control>
+        <div class="self-center full-width no-outline" tabindex="10">
+          {{ decodeBase64() }}
+        </div>
+      </template>
+    </q-field>
   </div>
 </template>
 
@@ -24,10 +33,14 @@ export default {
   },
   methods: {
     decodeBase64() {
-      console.log(Base64.decode(this.text));
+      try {
+        var decoded = Base64.decode(this.text);
+        return decoded;
+      } catch (err) {
+        if (err.message == "The string to be decoded is not correctly encoded.")
+          console.log(`Invalid encoding: ${this.text}.`);
+      }
     },
   },
 };
 </script>
-
-<!-- TODO: error handler -->
